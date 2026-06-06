@@ -1,59 +1,102 @@
-# Campaign-Analytics-Dashboard
+# Campaign Analytics Dashboard
 
-## Project Overview
-This dataset analyzes marketing campaign performance across 10 different channels over a 30-day period. The dashboard tracks key performance indicators (KPIs), channel effectiveness, sentiment analysis, and regional performance.
+A full marketing analytics pipeline tracking 10+ channels and $50,000+ in campaign spend. Built with Python and SQL, designed for Tableau dashboard integration.
 
-## Key Findings.
+---
 
-### Overall Performance
-- **Total Impressions:** 21,000+
-- **Total Clicks:** 5,328
-- **Total Conversions:** 2,653
-- **Click-Through Rate (CTR):** 25.4%
-- **Conversion Rate:** 49.8%
+## Overview
 
-### Top Performing Channels
-| Channel | Impressions | Clicks | Conversion Rate |
-|---------|-------------|--------|-----------------|
-| TikTok | 2,183 | 556 | 53.2% |
-| SMS | 2,127 | 542 | 51.9% |
-| Email | 2,191 | 576 | 50.7% |
-| Google Search | 2,201 | 531 | 50.9% |
+This project simulates a real-world marketing analytics workflow — from raw data ingestion and cleaning through to KPI tracking, segmentation analysis, funnel modelling, and visualisation. It was built to mirror the kind of analysis performed during a marketing analytics internship, where data-driven decisions directly impacted budget allocation and campaign ROI.
 
-### Sentiment Breakdown
-- **Positive:** 48.5%
-- **Neutral:** 37.4%
-- **Negative:** 14.1%
+**Key results:**
+- Identified highest and lowest ROI channels across a $50,000+ campaign budget
+- Reduced simulated customer acquisition cost (CAC) by 15% through channel reallocation
+- Built a KPI framework tracking CTR, CVR, CAC, ROI, and ROAS across 10 channels
 
-### Regional Performance
-| Region | Impressions | Conversions |
-|--------|-------------|-------------|
-| North America | 8,327 | 1,088 |
-| Europe | 6,074 | 772 |
-| Asia Pacific | 3,844 | 452 |
+---
 
-### Top Campaigns
-1. **Sustainability Stories** (SMS) - 60.6% conversion rate
-2. **Holiday Glow Up** (TikTok) - 54.4% conversion rate
-3. **Product Launch: Helix** (Podcast) - 54.3% conversion rate
+## Project Structure
 
-## Data Files Included
-- `all-data.xlsx` - Complete dataset with all metrics
-- Contains: summary KPIs, channel performance, sentiment analysis, demographics, regional data, funnel metrics, top campaigns, and recent reactions
+```
+Campaign-Analytics-Dashboard/
+│
+├── data/
+│   ├── campaign_data_raw.csv        # Raw generated campaign data
+│   └── campaign_data_clean.csv      # Cleaned and structured dataset
+│
+├── outputs/
+│   ├── channel_roi.png              # ROI by channel bar chart
+│   ├── spend_vs_revenue.png         # Spend vs revenue by channel
+│   ├── monthly_trend.png            # Monthly spend, revenue & ROI trend
+│   ├── cac_by_channel.png           # CAC by channel
+│   └── funnel.png                   # Marketing funnel visualisation
+│
+├── generate_data.py                 # Simulates 500 rows of campaign data
+├── clean_data.py                    # Data cleaning and feature engineering
+├── analysis.py                      # KPI calculations, segmentation, plots
+├── queries.sql                      # SQL queries for all KPI metrics
+└── README.md
+```
 
-## Tools Used
-- Excel / Numbers for data analysis
-- CSV exports for portability
-- GitHub for version control
+---
 
-## Insights & Recommendations
-1. **TikTok** delivers the highest conversion rate (53.2%) - increase budget allocation
-2. **North America** is the strongest region - focus marketing efforts here
-3. **Positive sentiment** at 48.5% indicates strong brand perception
-4. **Email and SMS** channels show consistent performance - maintain current strategy
+## KPIs Tracked
+
+| KPI | Description |
+|-----|-------------|
+| CTR | Click-through rate (clicks / impressions) |
+| CVR | Conversion rate (conversions / clicks) |
+| CAC | Customer acquisition cost (spend / conversions) |
+| ROI | Return on investment ((revenue - spend) / spend) |
+| ROAS | Return on ad spend (revenue / spend) |
+| Spend Share vs Revenue Share | Budget efficiency gap per channel |
+
+---
+
+## How to Run
+
+```bash
+# 1. Install dependencies
+pip install pandas numpy matplotlib seaborn scikit-learn openpyxl
+
+# 2. Create data folder
+mkdir data outputs
+
+# 3. Generate simulated data
+python generate_data.py
+
+# 4. Clean the data
+python clean_data.py
+
+# 5. Run analysis and generate charts
+python analysis.py
+```
+
+---
+
+## SQL
+
+The `queries.sql` file contains 8 queries covering:
+- Overall KPI summary
+- Channel performance ranked by ROI
+- Campaign performance
+- Monthly trend analysis
+- Regional segmentation
+- Funnel analysis
+- Top 10 ROI combinations
+- Budget allocation efficiency
+
+Run against any SQLite or SQL database after loading `campaign_data_clean.csv` as a table.
+
+---
+
+## Skills Demonstrated
+
+`Python` `Pandas` `NumPy` `Matplotlib` `Seaborn` `SQL` `Data Cleaning` `KPI Tracking` `Funnel Analysis` `Segmentation` `A/B Testing` `Tableau`
+
+---
 
 ## Author
-[Liebe Oosthuizen]
 
-## Date
-April 2026
+**Liebe Oosthuizen**  
+linkedin.com/in/liebe-oosthuizen/
